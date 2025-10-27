@@ -923,7 +923,7 @@ var _ = Describe("getPartitionPathFromLsblk", func() {
 
 			path, err := o.(*ops).getPartitionPathFromLsblk("/dev/dm-0", "3")
 			Expect(err).ToNot(HaveOccurred())
-			Expect(path).To(Equal("/dev/dm-3"))
+			Expect(path).To(Equal("/dev/mapper/dm-3"))
 		})
 
 		It("should find partition 4 for /dev/dm-0", func() {
@@ -946,7 +946,7 @@ var _ = Describe("getPartitionPathFromLsblk", func() {
 
 			path, err := o.(*ops).getPartitionPathFromLsblk("/dev/dm-0", "4")
 			Expect(err).ToNot(HaveOccurred())
-			Expect(path).To(Equal("/dev/dm-4"))
+			Expect(path).To(Equal("/dev/mapper/dm-4"))
 		})
 
 		It("should handle device mapper with higher numbers", func() {
@@ -955,7 +955,7 @@ var _ = Describe("getPartitionPathFromLsblk", func() {
 					{
 						"name": "dm-127",
 						"size": 100000000000,
-						"type": "mpath"
+						"type": "mpath",
 						"children": [
 							{"name": "dm-128", "type": "part", "size": 1048576},
 							{"name": "dm-129", "type": "part", "size": 133169152},
@@ -969,7 +969,7 @@ var _ = Describe("getPartitionPathFromLsblk", func() {
 
 			path, err := o.(*ops).getPartitionPathFromLsblk("/dev/dm-127", "3")
 			Expect(err).ToNot(HaveOccurred())
-			Expect(path).To(Equal("/dev/dm-130"))
+			Expect(path).To(Equal("/dev/mapper/dm-130"))
 		})
 	})
 
@@ -1041,7 +1041,7 @@ var _ = Describe("getPartitionPathFromLsblk", func() {
 					{
 						"name": "sda",
 						"size": 100000000000,
-						"type": "disk"
+						"type": "disk",
 						"children": [
 							{"name": "sda1", "type": "part", "size": 1048576}
 						]
@@ -1061,7 +1061,7 @@ var _ = Describe("getPartitionPathFromLsblk", func() {
 					{
 						"name": "sda",
 						"size": 100000000000,
-						"type": "disk"
+						"type": "disk",
 						"children": [
 							{"name": "sda1", "type": "part", "size": 1048576}
 						]
@@ -1104,7 +1104,7 @@ var _ = Describe("getPartitionPathFromLsblk", func() {
 					{
 						"name": "dm-0",
 						"size": 100000000000,
-						"type": "mpath"
+						"type": "mpath",
 						"children": [
 							{"name": "dm-1", "type": "part", "size": 1048576},
 							{"name": "dm-2", "type": "part", "size": 133169152},
@@ -1118,7 +1118,7 @@ var _ = Describe("getPartitionPathFromLsblk", func() {
 
 			path, err := o.(*ops).getPartitionPathFromLsblk("/dev/dm-0", "3")
 			Expect(err).ToNot(HaveOccurred())
-			Expect(path).To(Equal("/dev/dm-3"))
+			Expect(path).To(Equal("/dev/mapper/dm-3"))
 		})
 	})
 })
