@@ -1,8 +1,8 @@
 module github.com/openshift/assisted-installer
 
-go 1.26.0
+go 1.25.0
 
-toolchain go1.26.7
+toolchain go1.25.14
 
 require (
 	github.com/PuerkitoBio/rehttp v1.4.0
@@ -154,7 +154,7 @@ require (
 	github.com/tklauser/go-sysconf v0.3.16 // indirect
 	github.com/tklauser/numcpus v0.11.0 // indirect
 	github.com/yusufpapurcu/wmi v1.2.4 // indirect
-	go.mongodb.org/mongo-driver v1.17.10 // indirect
+	go.mongodb.org/mongo-driver v1.14.0 // indirect
 	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.60.0 // indirect
 	go.opentelemetry.io/otel v1.43.0 // indirect
